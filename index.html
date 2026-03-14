@@ -7,160 +7,137 @@
 <style>
 
 body{
-    margin:0;
-    height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family: 'Georgia', serif;
-    background: radial-gradient(circle at bottom,#0d1b2a,#000814);
+margin:0;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:'Georgia',serif;
+background: radial-gradient(circle at bottom,#0d1b2a,#000814);
 }
 
 /* ESTRELLAS */
+
 .star{
-    position:absolute;
-    width:2px;
-    height:2px;
-    background:white;
-    animation: blink 2s infinite alternate;
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+animation:blink 2s infinite alternate;
 }
 
 @keyframes blink{
-    from{opacity:0.2}
-    to{opacity:1}
+from{opacity:0.2}
+to{opacity:1}
 }
 
-/* CORAZONES */
-.heart{
-    position:absolute;
-    color:#ff4d6d;
-    animation: fall 10s linear infinite;
-    z-index:1;
-}
-
-@keyframes fall{
-    0%{transform:translateY(-10vh);opacity:0;}
-    20%{opacity:1;}
-    100%{transform:translateY(110vh);opacity:0;}
-}
-
-/* CONTENEDOR */
-.container{
-    position:relative;
-    z-index:10;
-}
-
-/* SOBRE */
-.envelope{
-    width:560px;
-    height:340px;
-    background:linear-gradient(145deg,#ff9fb0,#ff6f8f);
-    position:relative;
-    border-radius:16px;
-    box-shadow:0 25px 60px rgba(0,0,0,0.45);
-    z-index:5;
-}
-
-/* tapa */
-.envelope::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:0;
-    height:0;
-    border-left:280px solid transparent;
-    border-right:280px solid transparent;
-    border-top:170px solid #ff5f7f;
-    transform-origin:top;
-    transition:1s;
-    z-index:6;
-}
-
-/* abrir tapa */
-.open .envelope::before{
-    transform:rotateX(180deg);
-}
-
-/* decoración */
-.envelope::after{
-    content:"❤️  ❤️  ❤️  ❤️  ❤️";
-    position:absolute;
-    bottom:20px;
-    width:100%;
-    text-align:center;
-    font-size:26px;
-    opacity:0.8;
-}
-
-/* CARTA */
-.paper{
-    position:absolute;
-    width:500px;
-    max-height:65vh;
-    background:white;
-    left:50%;
-    bottom:20px;
-    transform:translateX(-50%);
-    padding:40px;
-    box-sizing:border-box;
-    border-radius:14px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.25);
-    transition:1.8s;
-    overflow-y:auto;
-    z-index:1; /* detrás del sobre */
-}
-/* cuando se abre */
-.open .paper{
-    bottom:260px; /* sube desde dentro */
-}
-
-/* TEXTO CARTA */
-.paper p{
-    line-height:1.7;
-    font-size:18px;
-    text-align:justify;
-}
-
-/* BOTON */
-button{
-    margin-top:25px;
-    padding:14px 30px;
-    border:none;
-    background:#ff4d6d;
-    color:white;
-    border-radius:12px;
-    cursor:pointer;
-    font-size:18px;
-}
-
-button:hover{
-    background:#ff1e4d;
-}
 /* ESTRELLAS FUGACES */
+
 .shooting-star{
-    position:absolute;
-    top:-10px;
-    left:-10px;
-    width:3px;
-    height:3px;
-    background:white;
-    border-radius:50%;
-    box-shadow:0 0 10px white,0 0 20px white;
-    animation:shoot 2s linear forwards;
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+box-shadow:0 0 10px white,0 0 20px white;
+border-radius:50%;
+animation:shoot 2s linear forwards;
 }
 
 @keyframes shoot{
-    0%{
-        transform:translate(0,0) rotate(45deg);
-        opacity:1;
-    }
-    100%{
-        transform:translate(600px,600px) rotate(45deg);
-        opacity:0;
-    }
+0%{
+transform:translate(0,0) rotate(45deg);
+opacity:1;
 }
+100%{
+transform:translate(600px,600px) rotate(45deg);
+opacity:0;
+}
+}
+
+/* CORAZONES */
+
+.heart{
+position:absolute;
+color:#ff4d6d;
+animation:fall 10s linear infinite;
+z-index:1;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh);opacity:0;}
+20%{opacity:1;}
+100%{transform:translateY(110vh);opacity:0;}
+}
+
+/* CARTA */
+
+.container{
+position:relative;
+z-index:10;
+}
+
+.paper{
+position:relative;
+width:520px;
+height:320px;
+background:white;
+padding:40px;
+box-sizing:border-box;
+border-radius:12px;
+box-shadow:0 20px 60px rgba(0,0,0,0.4);
+cursor:pointer;
+transition:1s;
+overflow:hidden;
+text-align:center;
+}
+
+/* esquina doblada */
+
+.paper::before{
+content:"";
+position:absolute;
+top:0;
+right:0;
+width:0;
+height:0;
+border-style:solid;
+border-width:0 90px 90px 0;
+border-color:transparent #e6e6e6 transparent transparent;
+}
+
+/* texto */
+
+.paper p{
+line-height:1.7;
+font-size:18px;
+text-align:center;
+white-space:pre-line;
+margin:0 auto;
+max-width:420px;
+}
+
+/* mensaje inicial */
+
+.mensaje{
+margin-top:20px;
+font-size:18px;
+color:#555;
+}
+
+.corazon{
+font-size:30px;
+margin-top:10px;
+}
+
+/* al abrir */
+
+.open .paper{
+height:70vh;
+overflow-y:auto;
+text-align:left;
+}
+
 </style>
 </head>
 
@@ -172,12 +149,91 @@ button:hover{
 
 <div class="container" id="carta">
 
-<div class="envelope">
+<div class="paper" onclick="abrirCarta()">
 
-<div class="paper">
 <h3>Para ti ❤️</h3>
 
-<p>
+<div id="inicio">
+
+<div class="mensaje">
+Toca aquí para escribirte mi Elian.
+</div>
+
+<div class="corazon">
+❤️
+</div>
+
+</div>
+
+<p id="poema"></p>
+
+</div>
+
+</div>
+
+<script>
+
+/* ESTRELLAS */
+
+for(let i=0;i<120;i++){
+let star=document.createElement("div");
+star.className="star";
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+star.style.animationDuration=(Math.random()*3+1)+"s";
+document.body.appendChild(star);
+}
+
+/* ESTRELLAS FUGACES */
+
+function crearEstrellaFugaz(){
+
+let star=document.createElement("div");
+
+star.className="shooting-star";
+
+star.style.top=Math.random()*40+"vh";
+star.style.left=Math.random()*40+"vw";
+
+document.body.appendChild(star);
+
+setTimeout(()=>{
+star.remove();
+},2000);
+
+}
+
+setInterval(()=>{
+crearEstrellaFugaz();
+crearEstrellaFugaz();
+},2000);
+
+/* CORAZONES */
+
+function crearCorazon(){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*15+10)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000)
+
+}
+
+setInterval(crearCorazon,800);
+
+/* POEMA */
+
+const texto=`
+
 Como olvidar...
 Como olvidar esa tarde de tormentos donde solo el sonido 
 de la lluvia y el pesar de mi silencioso refugio lastimaban mas 
@@ -220,71 +276,44 @@ momento de risas, cada momento de tristeza, cada
 momento de enojo, porque tienes mi corazón sostenido
 en tus manos......
 
-¿COMO OLVIDAR?, NO OLVIDARE NI OLVIDARE, POR 
+¿COMO OLVIDAR?, NO OLVIDO NI OLVIDARE, POR 
 FAVOR NO ME PIDAS QUE TE OLVIDE, NO ME 
 PIDAS QUE ME ROMPA EL CORAZON.....
-</p>
 
-</div>
+`;
 
-</div>
+let i=0;
 
-<center>
-<button onclick="abrirCarta()">Ábreme 💗</button>
-</center>
+function escribir(){
 
-</div>
+if(i<texto.length){
 
-<script>
+document.getElementById("poema").innerHTML+=texto.charAt(i);
 
-/* ESTRELLAS */
-for(let i=0;i<120;i++){
-let star=document.createElement("div");
-star.className="star";
-star.style.left=Math.random()*100+"vw";
-star.style.top=Math.random()*100+"vh";
-star.style.animationDuration=(Math.random()*3+1)+"s";
-document.body.appendChild(star);
+i++;
+
+setTimeout(escribir,25);
+
 }
 
-/* CORAZONES */
-function crearCorazon(){
-let heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML="❤️";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*15+10)+"px";
-document.body.appendChild(heart);
-setTimeout(()=>{heart.remove()},10000)
 }
-setInterval(crearCorazon,800);
 
 /* ABRIR CARTA */
+
 function abrirCarta(){
+
 document.getElementById("carta").classList.add("open");
+
 document.getElementById("music").play();
+
+document.getElementById("inicio").style.display="none";
+
+if(i===0){
+escribir();
 }
-/* ESTRELLAS FUGACES */
-
-function crearEstrellaFugaz(){
-
-let star=document.createElement("div");
-
-star.className="shooting-star";
-
-star.style.top=Math.random()*50+"vh";
-star.style.left=Math.random()*50+"vw";
-
-document.body.appendChild(star);
-
-setTimeout(()=>{
-star.remove();
-},2000);
 
 }
 
-/* aparece cada cierto tiempo */
-setInterval(crearEstrellaFugaz,5000);
 </script>
 
 </body>
