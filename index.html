@@ -53,12 +53,15 @@ body{
 
 /* SOBRE */
 .envelope{
-    width:520px;
-    height:300px;
-    background:linear-gradient(145deg,#ff8fa3,#ff758f);
+    width:540px;
+    height:320px;
+    background:linear-gradient(145deg,#ff9fb0,#ff758f);
     position:relative;
-    border-radius:12px;
-    box-shadow:0 15px 50px rgba(0,0,0,0.5);
+    border-radius:14px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.45);
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
 }
 
 /* tapa */
@@ -69,11 +72,11 @@ body{
     left:0;
     width:0;
     height:0;
-    border-left:260px solid transparent;
-    border-right:260px solid transparent;
-    border-top:150px solid #ff6b81;
+    border-left:270px solid transparent;
+    border-right:270px solid transparent;
+    border-top:160px solid #ff6b81;
     transform-origin:top;
-    transition:1.2s;
+    transition:1s;
     z-index:5;
 }
 
@@ -82,38 +85,37 @@ body{
     transform:rotateX(180deg);
 }
 
-/* corazones decorativos */
+/* decoración */
 .envelope::after{
-    content:"❤️   ❤️   ❤️   ❤️   ❤️";
+    content:"❤️  ❤️  ❤️  ❤️  ❤️";
     position:absolute;
-    bottom:18px;
+    bottom:20px;
     width:100%;
     text-align:center;
-    font-size:24px;
+    font-size:26px;
     opacity:0.7;
 }
 
 /* CARTA */
 .paper{
     position:absolute;
-    width:460px;
-    max-height:70vh;   /* evita que salga de la pantalla */
+    width:480px;
+    max-height:65vh;
     background:white;
     left:50%;
-    bottom:20px;
-    transform:translateX(-50%) translateY(0) scaleY(0.2);
-    transform-origin:bottom;
-    padding:35px;
+    bottom:15px;
+    transform:translateX(-50%) translateY(0);
+    padding:40px;
     box-sizing:border-box;
-    border-radius:10px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.25);
-    transition:2s;
-    overflow-y:auto;   /* scroll interno */
+    border-radius:12px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+    transition:1.8s;
+    overflow-y:auto;
 }
 
 /* cuando se abre */
 .open .paper{
-    transform:translateX(-50%) translateY(-180px) scaleY(1);
+    transform:translateX(-50%) translateY(-220px);
 }
 
 /* TEXTO CARTA */
