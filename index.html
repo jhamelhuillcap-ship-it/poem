@@ -53,16 +53,16 @@ body{
 
 /* SOBRE */
 .envelope{
-    width:540px;
-    height:320px;
-    background:linear-gradient(145deg,#ff9fb0,#ff758f);
+    width:560px;
+    height:340px;
+    background:linear-gradient(145deg,#ff9fb0,#ff6f8f);
     position:relative;
-    border-radius:14px;
-    box-shadow:0 20px 60px rgba(0,0,0,0.45);
-    overflow:hidden;
+    border-radius:16px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.45);
+    z-index:5;
 }
 
-/* tapa del sobre */
+/* tapa */
 .envelope::before{
     content:"";
     position:absolute;
@@ -70,12 +70,12 @@ body{
     left:0;
     width:0;
     height:0;
-    border-left:270px solid transparent;
-    border-right:270px solid transparent;
-    border-top:160px solid #ff6b81;
+    border-left:280px solid transparent;
+    border-right:280px solid transparent;
+    border-top:170px solid #ff5f7f;
     transform-origin:top;
     transition:1s;
-    z-index:4;
+    z-index:6;
 }
 
 /* abrir tapa */
@@ -83,36 +83,37 @@ body{
     transform:rotateX(180deg);
 }
 
-/* decoración del sobre */
+/* decoración */
 .envelope::after{
     content:"❤️  ❤️  ❤️  ❤️  ❤️";
     position:absolute;
-    bottom:18px;
+    bottom:20px;
     width:100%;
     text-align:center;
-    font-size:24px;
-    opacity:0.7;
+    font-size:26px;
+    opacity:0.8;
 }
 
 /* CARTA */
 .paper{
     position:absolute;
-    width:480px;
+    width:500px;
     max-height:65vh;
     background:white;
     left:50%;
-    bottom:15px;
-    transform:translateX(-50%) translateY(0);
+    bottom:20px;
+    transform:translateX(-50%);
     padding:40px;
     box-sizing:border-box;
-    border-radius:12px;
+    border-radius:14px;
     box-shadow:0 15px 35px rgba(0,0,0,0.25);
     transition:1.8s;
     overflow-y:auto;
+    z-index:1; /* detrás del sobre */
 }
 /* cuando se abre */
 .open .paper{
-    transform:translateX(-50%) translateY(-220px);
+    bottom:260px; /* sube desde dentro */
 }
 
 /* TEXTO CARTA */
