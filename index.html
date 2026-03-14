@@ -40,34 +40,28 @@ body{
 }
 
 @keyframes fall{
-    0%{
-        transform:translateY(-10vh);
-        opacity:0;
-    }
+    0%{transform:translateY(-10vh);opacity:0;}
     20%{opacity:1;}
-    100%{
-        transform:translateY(110vh);
-        opacity:0;
-    }
+    100%{transform:translateY(110vh);opacity:0;}
 }
 
-/* CARTA */
+/* CONTENEDOR */
 .container{
     position:relative;
     z-index:10;
 }
 
+/* SOBRE */
 .envelope{
-    width:380px;
-    height:240px;
-    background:#ff8fa3;
+    width:520px;
+    height:300px;
+    background:linear-gradient(145deg,#ff8fa3,#ff758f);
     position:relative;
-    border-radius:10px;
-    box-shadow:0 10px 40px rgba(0,0,0,0.5);
-    overflow:visible;
+    border-radius:12px;
+    box-shadow:0 15px 50px rgba(0,0,0,0.5);
 }
 
-/* tapa del sobre */
+/* tapa */
 .envelope::before{
     content:"";
     position:absolute;
@@ -75,11 +69,11 @@ body{
     left:0;
     width:0;
     height:0;
-    border-left:190px solid transparent;
-    border-right:190px solid transparent;
-    border-top:120px solid #ff758f;
+    border-left:260px solid transparent;
+    border-right:260px solid transparent;
+    border-top:150px solid #ff6b81;
     transform-origin:top;
-    transition:1s;
+    transition:1.2s;
     z-index:5;
 }
 
@@ -88,69 +82,70 @@ body{
     transform:rotateX(180deg);
 }
 
-/* corazones del sobre */
+/* corazones decorativos */
 .envelope::after{
-    content:"❤️   ❤️   ❤️";
+    content:"❤️   ❤️   ❤️   ❤️   ❤️";
     position:absolute;
-    bottom:15px;
+    bottom:18px;
     width:100%;
     text-align:center;
-    font-size:20px;
+    font-size:24px;
     opacity:0.7;
 }
 
-/* HOJA */
+/* CARTA */
 .paper{
     position:absolute;
-    width:320px;
-    height:200px;
+    width:460px;
+    max-height:65vh;
     background:white;
     left:50%;
-    bottom:10px;
+    bottom:20px;
     transform:translateX(-50%) translateY(0) scaleY(0.2);
     transform-origin:bottom;
-    padding:25px;
+    padding:35px;
     box-sizing:border-box;
-    border-radius:6px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
     transition:2s;
-    overflow:hidden;
+    overflow:auto;
 }
 
-/* cuando se abre la carta */
+/* cuando se abre */
 .open .paper{
-    transform:translateX(-50%) translateY(-280px) scaleY(1);
-    height:420px;
+    transform:translateX(-50%) translateY(-260px) scaleY(1);
+}
+
+/* TEXTO CARTA */
+.paper p{
+    line-height:1.7;
+    font-size:18px;
+    text-align:justify;
 }
 
 /* BOTON */
 button{
-    margin-top:15px;
-    padding:10px 20px;
+    margin-top:25px;
+    padding:14px 30px;
     border:none;
     background:#ff4d6d;
     color:white;
-    border-radius:10px;
+    border-radius:12px;
     cursor:pointer;
-    font-size:16px;
+    font-size:18px;
 }
 
 button:hover{
     background:#ff1e4d;
 }
-/* OPCIONAL - diseño del texto de la carta */
-.paper p{
-    line-height:1.6;
-    font-size:15px;
-    text-align:justify;
-}
+
 </style>
 </head>
 
 <body>
 
 <audio id="music" loop>
-<source src="music 2.0.mp3" type="audio/mp3">
+<source src="music2.mp3" type="audio/mp3">
 </audio>
 
 <div class="container" id="carta">
@@ -188,7 +183,7 @@ dicha en mis momentos de tristezas.
 No olvidare cuando di paso de abrir mi corazón hacia
 tu mundo de encantos, un mundo donde el mas 
 sincero “ te quiero “ hacia que mi cuerpo se 
-  embriagara en cafeína, la cafeína que no deja 
+embriagara en cafeína, la cafeína que no deja 
 a mi cabeza en paz al pensarte cada segundo, cada minuto
 y cada día. 
 
@@ -199,14 +194,13 @@ locura que mantiene cuerdo en una realidad donde solo
 es ella.
 
 No olvido ni olvidare cada palabra bonita, cada 
-Momento de risas, cada momento de tristeza, cada
-Momento de enojo, porque tienes mi corazón sostenido
- en tus manos......
+momento de risas, cada momento de tristeza, cada
+momento de enojo, porque tienes mi corazón sostenido
+en tus manos......
 
 ¿COMO OLVIDAR?, NO OLVIDARE NI OLVIDARE, POR 
 FAVOR NO ME PIDAS QUE TE OLVIDE, NO ME 
 PIDAS QUE ME ROMPA EL CORAZON.....
-
 </p>
 
 </div>
@@ -214,15 +208,14 @@ PIDAS QUE ME ROMPA EL CORAZON.....
 </div>
 
 <center>
-<button onclick="abrirCarta()">Ábreme ❤️</button>
+<button onclick="abrirCarta()">Ábreme 💗</button>
 </center>
 
 </div>
 
 <script>
 
-/* CREAR ESTRELLAS */
-
+/* ESTRELLAS */
 for(let i=0;i<120;i++){
 let star=document.createElement("div");
 star.className="star";
@@ -232,36 +225,22 @@ star.style.animationDuration=(Math.random()*3+1)+"s";
 document.body.appendChild(star);
 }
 
-/* LLUVIA DE CORAZONES */
-
+/* CORAZONES */
 function crearCorazon(){
-
 let heart=document.createElement("div");
-
 heart.className="heart";
 heart.innerHTML="❤️";
-
 heart.style.left=Math.random()*100+"vw";
 heart.style.fontSize=(Math.random()*15+10)+"px";
-
 document.body.appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},10000)
-
+setTimeout(()=>{heart.remove()},10000)
 }
-
 setInterval(crearCorazon,800);
 
 /* ABRIR CARTA */
-
 function abrirCarta(){
-
 document.getElementById("carta").classList.add("open");
-
 document.getElementById("music").play();
-
 }
 
 </script>
