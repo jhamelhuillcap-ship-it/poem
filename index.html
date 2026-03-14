@@ -59,12 +59,10 @@ body{
     position:relative;
     border-radius:14px;
     box-shadow:0 20px 60px rgba(0,0,0,0.45);
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
+    overflow:hidden;
 }
 
-/* tapa */
+/* tapa del sobre */
 .envelope::before{
     content:"";
     position:absolute;
@@ -77,7 +75,7 @@ body{
     border-top:160px solid #ff6b81;
     transform-origin:top;
     transition:1s;
-    z-index:5;
+    z-index:4;
 }
 
 /* abrir tapa */
@@ -85,14 +83,14 @@ body{
     transform:rotateX(180deg);
 }
 
-/* decoración */
+/* decoración del sobre */
 .envelope::after{
     content:"❤️  ❤️  ❤️  ❤️  ❤️";
     position:absolute;
-    bottom:20px;
+    bottom:18px;
     width:100%;
     text-align:center;
-    font-size:26px;
+    font-size:24px;
     opacity:0.7;
 }
 
@@ -112,7 +110,6 @@ body{
     transition:1.8s;
     overflow-y:auto;
 }
-
 /* cuando se abre */
 .open .paper{
     transform:translateX(-50%) translateY(-220px);
