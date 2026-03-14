@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Carta para ti ❤️</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Georgia', serif;
+    background: radial-gradient(circle at bottom,#0d1b2a,#000814);
+}
+
+/* ESTRELLAS */
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    animation: blink 2s infinite alternate;
+}
+
+@keyframes blink{
+    from{opacity:0.2}
+    to{opacity:1}
+}
+
+/* CORAZONES */
+.heart{
+    position:absolute;
+    color:#ff4d6d;
+    animation: fall 10s linear infinite;
+    z-index:1;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+    20%{opacity:1;}
+    100%{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+/* CARTA */
+.container{
+    position:relative;
+    z-index:10;
+}
+
+.envelope{
+    width:320px;
+    height:200px;
+    background:#ff8fa3;
+    position:relative;
+    border-radius:5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* HOJA */
+.paper{
+    position:absolute;
+    width:280px;
+    height:0;
+    background:white;
+    bottom:100%;
+    overflow:hidden;
+    transition:1.5s;
+    padding:20px;
+    box-sizing:border-box;
+    border-radius:5px;
+}
+
+/* CUANDO SE ABRE */
+.open .paper{
+    height:220px;
+}
+
+/* BOTON */
+button{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    background:#ff4d6d;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#ff1e4d;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="music2.mp3" type="audio/mp3">
+</audio>
+
+<div class="container" id="carta">
+
+<div class="envelope">
+
+<div class="paper">
+<h3>Para ti ❤️</h3>
+
+<p>
+Como olvidar...
+Como olvidar esa tarde de tormentos donde solo el sonido 
+de la lluvia y el pesar de mi silencioso refugio lastimaban mas 
+fuerte que un frio invierno, pero algo me rescato algo que se me había perdido. 
+
+Como olvidar que mis pensamientos me mortificaban 
+diciéndome que solo eras una pasajera 
+en mi soledad, mi corazón me decía que solo eras una 
+deslumbrante ilusión de la que no podía confiarme, pero 
+aquella bella imagen me mostro esa dulce sonrisa que calmo 
+el ruido de mis fastidiosos pensamientos y las 
+inseguridades de mi aburrido corazón.
+
+Como olvidar esas mañanas al despertar ese tierno mensaje
+que me acariciaban el corazón, como un cálido Rocio 
+de gotas acaricia cada mañana al mas elegante 
+lirio blanco de mi devastado campo. 
+
+Como olvidar que desde aquel momento los días dejaron de 
+pintarse en grises, obra de esa personita que en
+momentos era la paciencia de mis tormentas, la calma de 
+mis diluvios, la felicidad de mis noches oscuras y la 
+dicha en mis momentos de tristezas.
+
+No olvidare cuando di paso de abrir mi corazón hacia
+tu mundo de encantos, un mundo donde el mas 
+sincero “ te quiero “ hacia que mi cuerpo se 
+  embriagara en cafeína, la cafeína que no deja 
+a mi cabeza en paz al pensarte cada segundo, cada minuto
+y cada día. 
+
+La vida me pide que olvide a la persona que me hizo
+sentir querido después de tanto, a esa persona que 
+encaja perfectamente en mi mundo de locura,
+locura que mantiene cuerdo en una realidad donde solo 
+es ella.
+
+No olvido ni olvidare cada palabra bonita, cada 
+Momento de risas, cada momento de tristeza, cada
+Momento de enojo, porque tienes mi corazón sostenido
+ en tus manos......
+
+¿COMO OLVIDAR?, NO OLVIDARE NI OLVIDARE, POR 
+FAVOR NO ME PIDAS QUE TE OLVIDE, NO ME 
+PIDAS QUE ME ROMPA EL CORAZON.....
+
+</p>
+
+</div>
+
+</div>
+
+<center>
+<button onclick="abrirCarta()">Ábreme ❤️</button>
+</center>
+
+</div>
+
+<script>
+
+/* CREAR ESTRELLAS */
+
+for(let i=0;i<120;i++){
+let star=document.createElement("div");
+star.className="star";
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+star.style.animationDuration=(Math.random()*3+1)+"s";
+document.body.appendChild(star);
+}
+
+/* LLUVIA DE CORAZONES */
+
+function crearCorazon(){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*15+10)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000)
+
+}
+
+setInterval(crearCorazon,800);
+
+/* ABRIR CARTA */
+
+function abrirCarta(){
+
+document.getElementById("carta").classList.add("open");
+
+document.getElementById("music").play();
+
+}
+
+</script>
+
+</body>
+</html>
